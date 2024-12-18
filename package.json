@@ -1,0 +1,15 @@
+{
+  "name": "express-blog-intro",
+  "version": "1.0.0",
+  "description": "<img src=\"https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png\" width=\"200\"> <br> Trentatreesimo Esercizio Classe #137 - Boolean",
+  "main": "server.js",
+  "scripts": {
+    "test": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "author": "Fabio Ferrero",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
