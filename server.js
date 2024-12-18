@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const getBasePath = require('./modules/getBasePath')
+
 const posts = require('./data/posts')
 
 const port = 3000;
@@ -16,8 +18,14 @@ app.listen(port, () => {
 })
 
 app.get('/bacheca', (req, res) => {
-  posts.postcount = 0;
-  posts.forEach(el => posts.postcount++)
-  console.log(posts)
-  res.json(posts)
+  const postsResponse = posts.map(post => {
+    const basePath = getBasePath(req)
+    post.immagine = !post.immagine.startsWith(basePath) ? basePath + post.immagine : post.immagine;
+    return post
+  });
+  const response = {
+    postcount: postsResponse.length,
+    posts: postsResponse
+  };
+  res.json(response);
 })
